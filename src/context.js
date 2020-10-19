@@ -1,11 +1,12 @@
 import React, { useReducer, useEffect } from "react";
-
+import { v4 as uuidv4 } from "uuid";
 export const PeopleContext = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_PERSON":
-      return [...state, { name: action.people.name }];
+      return [...state, { name: action.people.name, id: uuidv4() }];
+    case "EDIT_PERSON":
     default:
       throw new Error("No such action");
   }
