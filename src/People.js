@@ -1,5 +1,14 @@
 import React from "react";
-
-const People = () => <div>list of people </div>;
+import { PeopleContext } from "./context";
+const People = () => {
+  const { people } = React.useContext(PeopleContext);
+  return (
+    <div>
+      {people.map((peep, key) => (
+        <p key={key}>{peep.name}</p>
+      ))}
+    </div>
+  );
+};
 
 export default People;
