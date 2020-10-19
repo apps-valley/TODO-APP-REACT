@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
-
+import Form from "./Form";
+import People from "./People";
 function App() {
-  return <>Hello sunshine </>;
+  return (
+    <div>
+      <Form /> <People />
+    </div>
+  );
 }
 
 export default App;
