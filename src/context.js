@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 export const PeopleContext = React.createContext();
 
@@ -13,8 +13,14 @@ const reducer = (state, action) => {
 
 export const PeopleContextProvider = (props) => {
   const [people, dispatch] = useReducer(reducer, [], () => {
-    return [];
+    const dataFromLocalStorage = localStorage.getItem("people");
+    return dataFromLocalStorage ? JSON.parse(dataFromLocalStorage) : [];
   });
+
+  useEffect(() => {
+    localStorage.setItem("people", JSON.stringify(people));
+  }, [people]);
+
   return (
     <PeopleContext.Provider value={{ people, dispatch }}>
       {props.children}
