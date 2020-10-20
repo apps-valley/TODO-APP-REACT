@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { withRouter } from "react-router-dom";
 import { PeopleContext } from "./context";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
@@ -15,7 +16,7 @@ const useForm = (initialValues) => {
   };
 };
 
-const Form = ({ id, isEdit }) => {
+const Form = ({ id, isEdit, history }) => {
   const { values, handleChange, reset } = useForm({
     name: "",
   });
@@ -33,8 +34,9 @@ const Form = ({ id, isEdit }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    reset();
+    // reset(); // duplicate?
     setAction();
+    history.push("/");
   };
 
   return (
@@ -52,4 +54,4 @@ const Form = ({ id, isEdit }) => {
   );
 };
 
-export default Form;
+export default withRouter(Form);
