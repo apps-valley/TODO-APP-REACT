@@ -1,7 +1,7 @@
 import React from "react";
-
+import Form from "./Form";
 const CreatePersonPage = () => {
-  return <div> Create person</div>;
+  return <Form isEdit={false} />;
 };
 
 export default CreatePersonPage;

@@ -7,6 +7,7 @@ const reducer = (state, action) => {
     case "ADD_PERSON":
       return [...state, { name: action.people.name, id: uuidv4() }];
     case "EDIT_PERSON":
+      return state;
     default:
       throw new Error("No such action");
   }

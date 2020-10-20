@@ -1,17 +1,26 @@
 import React, { useContext } from "react";
 import { PeopleContext } from "./context";
 
-const Form = () => {
+const Form = ({ id, isEdit }) => {
   const [name, setName] = React.useState("");
   const { people, dispatch } = useContext(PeopleContext);
-  console.log(people);
   const onChange = (e) => {
     setName(e.target.value);
   };
+
+  const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
+
+  const startEditPerson = () =>
+    dispatch({ type: "EDIT_PERSON", people: { name: "smth new here" } });
+
+  const startAddPerson = () =>
+    dispatch({ type: "ADD_PERSON", people: { name } });
+
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_PERSON", people: { name } });
+    setAction();
   };
+
   return (
     <form onSubmit={onSubmit}>
       <input type="text" value={name} onChange={onChange} />
