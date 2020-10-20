@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { PeopleContext } from "./context";
+import countries from "./countries";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
 
@@ -25,7 +26,7 @@ const Form = ({ id, isEdit, history }) => {
     birth: "",
   });
 
-  const { people, dispatch } = useContext(PeopleContext);
+  const { dispatch } = useContext(PeopleContext);
 
   const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
 
@@ -63,7 +64,7 @@ const Form = ({ id, isEdit, history }) => {
       />
 
       <input
-        type="text"
+        type="date"
         name="birth"
         placeholder="birth"
         onChange={handleChange}
@@ -84,13 +85,14 @@ const Form = ({ id, isEdit, history }) => {
         onChange={handleChange}
         value={values.salary}
       />
-      <input
-        type="text"
-        name="country"
-        placeholder="country"
-        onChange={handleChange}
-        value={values.country}
-      />
+
+      <select name="country" value={values.country} onChange={handleChange}>
+        {countries.map((country, key) => (
+          <option key={key} value={country.value}>
+            {country.label}
+          </option>
+        ))}
+      </select>
       <input type="submit" />
     </form>
   );
