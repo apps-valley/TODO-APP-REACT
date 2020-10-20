@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { PeopleContext } from "./context";
 import countries from "./countries";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
-
   return {
     values,
     handleChange: (e) => {
@@ -13,12 +12,23 @@ const useForm = (initialValues) => {
         [e.target.name]: e.target.value,
       });
     },
-    reset: () => setValues(initialValues),
+    setInitialValues: (initialValues) => {
+      setValues({
+        ...initialValues,
+      });
+    },
   };
 };
 
 const Form = ({ id, isEdit, history }) => {
-  const { values, handleChange, reset } = useForm({
+  const [formPerson, setFormPerson] = useState();
+
+  const getCurrentPerson = () => {
+    const currentPerson = people.find((person) => person.id === id);
+    return setFormPerson(currentPerson);
+  };
+
+  const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
     country: "",
@@ -26,12 +36,30 @@ const Form = ({ id, isEdit, history }) => {
     birth: "",
   });
 
-  const { dispatch } = useContext(PeopleContext);
+  useEffect(() => {
+    const result = getCurrentPerson();
+
+    if (result) {
+      setInitialValues(result);
+    }
+  }, []);
+
+  const { people, dispatch } = useContext(PeopleContext);
 
   const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
 
   const startEditPerson = () => {
-    dispatch({ type: "EDIT_PERSON", person: { name: values.name, id } });
+    const { name, title, country, salary, birth } = values;
+    const person = {
+      name,
+      title,
+      country,
+      salary,
+      birth,
+      id,
+    };
+
+    dispatch({ type: "EDIT_PERSON", person });
   };
 
   const startAddPerson = () => {
@@ -48,7 +76,6 @@ const Form = ({ id, isEdit, history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // reset(); // duplicate?
     setAction();
     history.push("/");
   };
@@ -61,6 +88,7 @@ const Form = ({ id, isEdit, history }) => {
         placeholder="Enter your name..."
         onChange={handleChange}
         value={values.name}
+        required
       />
 
       <input
@@ -69,6 +97,7 @@ const Form = ({ id, isEdit, history }) => {
         placeholder="birth"
         onChange={handleChange}
         value={values.birth}
+        required
       />
 
       <input
@@ -77,6 +106,7 @@ const Form = ({ id, isEdit, history }) => {
         placeholder="title"
         onChange={handleChange}
         value={values.title}
+        required
       />
       <input
         type="number"
@@ -84,6 +114,7 @@ const Form = ({ id, isEdit, history }) => {
         placeholder="salary"
         onChange={handleChange}
         value={values.salary}
+        required
       />
 
       <select name="country" value={values.country} onChange={handleChange}>
