@@ -1,15 +1,11 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "./App.css";
-import Form from "./Form";
-import People from "./People";
+import Routes from "./Routes";
 import { PeopleContextProvider } from "./context";
 function App() {
   return (
     <PeopleContextProvider>
-      <div>
-        <Form />
-        <People />
-      </div>
+      <Routes />
     </PeopleContextProvider>
   );
 }
