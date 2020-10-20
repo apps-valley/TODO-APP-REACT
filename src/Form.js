@@ -21,13 +21,8 @@ const useForm = (initialValues) => {
 };
 
 const Form = ({ id, isEdit, history }) => {
-  const [formPerson, setFormPerson] = useState();
-
-  const getCurrentPerson = () => {
-    const currentPerson = people.find((person) => person.id === id);
-    return setFormPerson(currentPerson);
-  };
-
+  const getCurrentPerson = () => people.find((person) => person.id === id);
+  const { people, dispatch } = useContext(PeopleContext);
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
@@ -37,14 +32,11 @@ const Form = ({ id, isEdit, history }) => {
   });
 
   useEffect(() => {
-    const result = getCurrentPerson();
-
-    if (result) {
-      setInitialValues(result);
+    const currentPerson = getCurrentPerson();
+    if (currentPerson) {
+      setInitialValues(currentPerson);
     }
   }, []);
-
-  const { people, dispatch } = useContext(PeopleContext);
 
   const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
 
