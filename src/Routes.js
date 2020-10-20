@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import CreatePersonPage from "./CreatePersonPage";
 import EditPersonPage from "./EditPersonPage";
-import Homepage from "./PeopleList";
+import Homepage from "./Homepage";
 const Routes = () => (
   <BrowserRouter>
     <Switch>
