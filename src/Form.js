@@ -26,11 +26,11 @@ const Form = ({ id, isEdit, history }) => {
   const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
 
   const startEditPerson = () => {
-    dispatch({ type: "EDIT_PERSON", people: { name: "smth new here" } });
+    dispatch({ type: "EDIT_PERSON", person: { name: values.name, id } });
   };
 
   const startAddPerson = () =>
-    dispatch({ type: "ADD_PERSON", people: { name: values.name } });
+    dispatch({ type: "ADD_PERSON", person: { name: values.name } });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +42,6 @@ const Form = ({ id, isEdit, history }) => {
   return (
     <form onSubmit={onSubmit}>
       <input
-        type="text"
         type="text"
         name="name"
         placeholder="Enter your name..."

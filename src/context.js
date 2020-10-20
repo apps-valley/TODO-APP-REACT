@@ -5,9 +5,17 @@ export const PeopleContext = React.createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_PERSON":
-      return [...state, { name: action.people.name, id: uuidv4() }];
+      return [...state, { name: action.person.name, id: uuidv4() }];
     case "EDIT_PERSON":
-      return state;
+      const updatedPerson = action.person;
+      const updatedPeople = state.map((person) => {
+        if (person.id === updatedPerson.id) {
+          return updatedPerson;
+        }
+        return person;
+      });
+
+      return updatedPeople;
     default:
       throw new Error("No such action");
   }
