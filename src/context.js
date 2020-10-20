@@ -5,7 +5,16 @@ export const PeopleContext = React.createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_PERSON":
-      return [...state, { name: action.person.name, id: uuidv4() }];
+      const { name, title, salary, country, birth } = action.person;
+      const person = {
+        name,
+        title,
+        salary,
+        country,
+        birth,
+        id: uuidv4(),
+      };
+      return [...state, person];
     case "EDIT_PERSON":
       const updatedPerson = action.person;
       const updatedPeople = state.map((person) => {

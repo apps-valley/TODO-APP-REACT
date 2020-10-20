@@ -19,6 +19,10 @@ const useForm = (initialValues) => {
 const Form = ({ id, isEdit, history }) => {
   const { values, handleChange, reset } = useForm({
     name: "",
+    title: "",
+    country: "",
+    salary: "",
+    birth: "",
   });
 
   const { people, dispatch } = useContext(PeopleContext);
@@ -29,8 +33,17 @@ const Form = ({ id, isEdit, history }) => {
     dispatch({ type: "EDIT_PERSON", person: { name: values.name, id } });
   };
 
-  const startAddPerson = () =>
-    dispatch({ type: "ADD_PERSON", person: { name: values.name } });
+  const startAddPerson = () => {
+    const { name, title, country, salary, birth } = values;
+    const person = {
+      name,
+      title,
+      country,
+      salary,
+      birth,
+    };
+    dispatch({ type: "ADD_PERSON", person });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +60,36 @@ const Form = ({ id, isEdit, history }) => {
         placeholder="Enter your name..."
         onChange={handleChange}
         value={values.name}
+      />
+
+      <input
+        type="text"
+        name="birth"
+        placeholder="birth"
+        onChange={handleChange}
+        value={values.birth}
+      />
+
+      <input
+        type="text"
+        name="title"
+        placeholder="title"
+        onChange={handleChange}
+        value={values.title}
+      />
+      <input
+        type="number"
+        name="salary"
+        placeholder="salary"
+        onChange={handleChange}
+        value={values.salary}
+      />
+      <input
+        type="text"
+        name="country"
+        placeholder="country"
+        onChange={handleChange}
+        value={values.country}
       />
       <input type="submit" />
     </form>

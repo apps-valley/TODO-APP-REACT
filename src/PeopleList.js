@@ -6,10 +6,13 @@ const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
   return (
     <div>
-      {people.map((peep, key) => (
+      {people.map(({ id, name, title, salary, country, birth }, key) => (
         <div key={key}>
-          <p>{peep.name}</p>
-          <Link to={`/edit/${peep.id}`}>Edit</Link>
+          <p>
+            {name} | {title} | {salary} | {country} | {birth}
+          </p>
+
+          <Link to={`/edit/${id}`}>Edit</Link>
         </div>
       ))}
     </div>
