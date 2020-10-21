@@ -23,10 +23,11 @@ const useForm = (initialValues) => {
 const Form = ({ id, isEdit, history }) => {
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
+  const preselectedOption = countries[0].label;
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
-    country: "",
+    country: preselectedOption,
     salary: "",
     birth: "",
   });
@@ -68,6 +69,7 @@ const Form = ({ id, isEdit, history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     setAction();
     history.push("/");
   };
@@ -82,7 +84,6 @@ const Form = ({ id, isEdit, history }) => {
         value={values.name}
         required
       />
-
       <input
         type="date"
         name="birth"
@@ -91,7 +92,6 @@ const Form = ({ id, isEdit, history }) => {
         value={values.birth}
         required
       />
-
       <input
         type="text"
         name="title"
@@ -108,7 +108,6 @@ const Form = ({ id, isEdit, history }) => {
         value={values.salary}
         required
       />
-
       <select name="country" value={values.country} onChange={handleChange}>
         {countries.map((country, key) => (
           <option key={key} value={country.value}>
@@ -116,6 +115,7 @@ const Form = ({ id, isEdit, history }) => {
           </option>
         ))}
       </select>
+
       <input type="submit" />
     </form>
   );
