@@ -1,8 +1,6 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import CreatePersonPage from "../pages/CreatePersonPage";
-import EditPersonPage from "../pages/EditPersonPage";
-import HomePage from "../pages/HomePage";
+import { HomePage, EditPersonPage, CreatePersonPage } from "pages";
 import { HomeRoute, EditRoute, CreateRoute } from "./routeNames";
 const Routes = () => (
   <BrowserRouter>
