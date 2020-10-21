@@ -1,18 +1,25 @@
 import React from "react";
 import { PeopleContext } from "context";
 import { Link } from "react-router-dom";
-
+import { ReactSVG } from "react-svg";
+import userIcon from "resources/user-profile.svg";
 const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
   const peopleEnding = people.length > 1 ? "es" : "er";
   return (
-    <section className="people ">
+    <section className="people">
       <div className="people__header container__inner">
         <h1>People</h1>
         <span>
           {people.length} employe{peopleEnding}
         </span>
-        <Link to="/create" className="button button--purple is-right">
+        <Link
+          to="/create"
+          className="button button--purple button--create is-right"
+        >
+          <span className="icon">
+            <ReactSVG src={userIcon} />
+          </span>
           Add Employee
         </Link>
       </div>
