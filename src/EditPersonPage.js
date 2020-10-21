@@ -4,7 +4,7 @@ const EditPersonPage = ({ match }) => {
   return (
     <div>
       Edit person
-      <Form id={match.params.id} isEdit />
+      <Form id={match.params.id} />
     </div>
   );
 };

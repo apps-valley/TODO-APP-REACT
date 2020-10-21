@@ -20,7 +20,7 @@ const useForm = (initialValues) => {
   };
 };
 
-const Form = ({ id, isEdit, history }) => {
+const Form = ({ id, history }) => {
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
   const preselectedOption = countries[0].label;
@@ -39,7 +39,7 @@ const Form = ({ id, isEdit, history }) => {
     }
   }, []);
 
-  const setAction = () => (isEdit ? startEditPerson() : startAddPerson());
+  const setAction = () => (id ? startEditPerson() : startAddPerson());
 
   const startEditPerson = () => {
     const { name, title, country, salary, birth } = values;
