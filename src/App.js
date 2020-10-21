@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./stylesheets/App.css";
 import Routes from "./routes/Routes";
 import { PeopleContextProvider } from "./context/context";
 function App() {
