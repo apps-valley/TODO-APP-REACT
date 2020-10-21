@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
   return (
-    <div>
+    <section className="people">
       {people.map(({ id, name, title, salary, country, birth }, key) => (
-        <div key={key}>
+        <article key={key}>
           <p>
             {name} | {title} | {salary} | {country} | {birth}
           </p>
 
           <Link to={`/edit/${id}`}>Edit</Link>
-        </div>
+        </article>
       ))}
-    </div>
+    </section>
   );
 };
 

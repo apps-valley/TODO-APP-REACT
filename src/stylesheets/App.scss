@@ -1,11 +1,36 @@
+@import "fonts/stylesheet.css";
+
+$grey: #e5e5e5;
+$white: #ffffff;
+$bodyBg: $grey;
+$articleBg: $white;
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
+  background-color: $bodyBg;
 }
 
 main {
   display: grid;
+}
+
+.people {
+  article {
+    padding-top: 25px;
+    padding-bottom: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background: $articleBg;
+    box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
 }
