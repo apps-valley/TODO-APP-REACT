@@ -13,7 +13,7 @@ const PeopleList = () => {
           {people.length} employe{peopleEnding}
         </span>
         <Link to="/create" className="button button--purple is-right">
-          Add employee
+          Add Employee
         </Link>
       </div>
       <div className="people__labels">

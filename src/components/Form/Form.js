@@ -21,6 +21,7 @@ const useForm = (initialValues) => {
 };
 
 const Form = ({ id, history }) => {
+  const [buttonValue, setButtonValue] = useState("");
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
   const preselectedOption = countries[0].label;
@@ -33,11 +34,15 @@ const Form = ({ id, history }) => {
   });
 
   useEffect(() => {
+    startSettingButtonValue();
     const currentPerson = getCurrentPerson();
     if (currentPerson) {
       setInitialValues(currentPerson);
     }
   }, []);
+
+  const startSettingButtonValue = () =>
+    id ? setButtonValue("Save") : setButtonValue("Add Employee");
 
   const setAction = () => (id ? startEditPerson() : startAddPerson());
 
@@ -151,7 +156,11 @@ const Form = ({ id, history }) => {
         <Link to="/" className="button button--white">
           Cancel
         </Link>
-        <input type="submit" value="Save" className="button button--purple" />
+        <input
+          type="submit"
+          value={buttonValue}
+          className="button button--purple"
+        />
       </div>
     </form>
   );
