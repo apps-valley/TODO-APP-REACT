@@ -6,18 +6,21 @@ const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
   const peopleEnding = people.length > 1 ? "es" : "er";
   return (
-    <section className="people">
-      <div className="people__header">
+    <section className="people ">
+      <div className="people__header container__inner">
         <h1>People</h1>
         <span>
           {people.length} employe{peopleEnding}
         </span>
+        <Link to="/create" className="button button--purple is-right">
+          Add employee
+        </Link>
       </div>
       <div className="people__labels">
         <h5>Employee</h5>
         <h5>Job Title</h5>
-        <h5>Country</h5>
         <h5>Salary</h5>
+        <h5>Country</h5>
       </div>
       {people.map(({ id, name, title, salary, country, birth }, key) => (
         <article className="person" key={key}>
