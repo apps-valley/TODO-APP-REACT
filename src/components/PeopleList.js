@@ -1,5 +1,5 @@
 import React from "react";
-import { PeopleContext } from "./context";
+import { PeopleContext } from "../context";
 import { Link } from "react-router-dom";
 
 const PeopleList = () => {
