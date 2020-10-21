@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import countries from "./countries";
 const useForm = (initialValues) => {
@@ -69,54 +69,90 @@ const Form = ({ id, history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     setAction();
     history.push("/");
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter your name..."
-        onChange={handleChange}
-        value={values.name}
-        required
-      />
-      <input
-        type="date"
-        name="birth"
-        placeholder="birth"
-        onChange={handleChange}
-        value={values.birth}
-        required
-      />
-      <input
-        type="text"
-        name="title"
-        placeholder="title"
-        onChange={handleChange}
-        value={values.title}
-        required
-      />
-      <input
-        type="number"
-        name="salary"
-        placeholder="salary"
-        onChange={handleChange}
-        value={values.salary}
-        required
-      />
-      <select name="country" value={values.country} onChange={handleChange}>
-        {countries.map((country, key) => (
-          <option key={key} value={country.value}>
-            {country.label}
-          </option>
-        ))}
-      </select>
-
-      <input type="submit" />
+      <div className="form-container">
+        <fieldset>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="e.g. Jane Doe"
+            onChange={handleChange}
+            value={values.name}
+            required
+            className="input"
+          />
+          <legend>First and last names</legend>
+        </fieldset>
+        <fieldset>
+          <label htmlFor="date">Birthdate</label>
+          <input
+            type="date"
+            name="birth"
+            placeholder="e.g. 17/02/1990"
+            onChange={handleChange}
+            value={values.birth}
+            required
+            className="input"
+          />
+          <legend>DD/MM/YYYY</legend>
+        </fieldset>
+        <fieldset>
+          <label htmlFor="title">Job title</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="e.g Product manager"
+            onChange={handleChange}
+            value={values.title}
+            required
+            className="input"
+          />
+          <legend>What is their role?</legend>
+        </fieldset>
+        <fieldset>
+          <label htmlFor="number">Country</label>
+          <select
+            required
+            className="input"
+            name="country"
+            value={values.country}
+            onChange={handleChange}
+            placeholder="Portugal"
+          >
+            {countries.map((country, key) => (
+              <option key={key} value={country.value}>
+                {country.label}
+              </option>
+            ))}
+          </select>
+          <legend>Where are they based?</legend>
+        </fieldset>
+        <fieldset>
+          <label htmlFor="country">Salary</label>
+          <input
+            type="number"
+            name="salary"
+            placeholder="e.g. 50000"
+            onChange={handleChange}
+            value={values.salary}
+            required
+            className="input"
+          />
+          <legend>Gross yearly salary</legend>
+        </fieldset>
+      </div>
+      <div className="button-group">
+        <Link to="/" className="button button--white">
+          Cancel
+        </Link>
+        <input type="submit" value="Save" className="button button--purple" />
+      </div>
     </form>
   );
 };
