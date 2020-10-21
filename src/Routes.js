@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import CreatePersonPage from "./CreatePersonPage";
-import EditPersonPage from "./EditPersonPage";
-import HomePage from "./HomePage";
+import CreatePersonPage from "./pages/CreatePersonPage";
+import EditPersonPage from "./pages/EditPersonPage";
+import HomePage from "./pages/HomePage";
 const Routes = () => (
   <BrowserRouter>
     <Switch>
