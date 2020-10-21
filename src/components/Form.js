@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import { PeopleContext } from "../context";
+import { PeopleContext } from "../context/context";
 import countries from "../countries";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
