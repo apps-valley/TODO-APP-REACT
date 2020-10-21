@@ -1,0 +1,29 @@
+.page {
+  background-color: #fff;
+  box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin-bottom: 40px;
+
+  &__description {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaedf3;
+    margin-bottom: 50px;
+    padding-top: 34px;
+
+    padding-left: 36px;
+    background-color: #fff;
+    h2 {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 27px;
+      color: #00234b;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      color: #525f7f;
+    }
+  }
+}

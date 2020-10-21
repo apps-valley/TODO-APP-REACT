@@ -1,0 +1,109 @@
+::-webkit-input-placeholder {
+  color: #525f7f;
+}
+:-moz-placeholder {
+  color: #525f7f;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: #525f7f;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #525f7f;
+}
+::-ms-input-placeholder {
+  color: #525f7f;
+}
+
+::placeholder {
+  color: #525f7f;
+}
+
+input {
+  border: none;
+}
+
+form {
+  .form-container {
+    margin: 0 auto;
+    max-width: 540px;
+    fieldset {
+      border: none;
+      position: relative;
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 80px;
+      }
+
+      label {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+        color: #624de3;
+      }
+
+      legend {
+        position: absolute;
+        bottom: -15px;
+        font-size: 13px;
+        line-height: 16px;
+        color: rgba(0, 35, 75, 0.5);
+      }
+      .input {
+        width: 100%;
+        border-bottom: 1.5px solid #624de3;
+        font-size: 20px;
+        line-height: 24px;
+        color: #00234b;
+        padding: 8px 0;
+        transition: border-bottom-color 0.5s ease-in-out;
+
+        &:focus {
+          outline: none;
+          border-bottom: 1.5px solid #000000;
+        }
+      }
+
+      select:invalid {
+        color: #525f7f !important;
+      }
+
+      select:focus {
+        color: #00234b;
+      }
+
+      input[type="date"]:invalid::-webkit-datetime-edit {
+        color: #525f7f;
+      }
+
+      input[type="date" i] {
+        font-family: "Inter", sans-serif;
+      }
+
+      select {
+        border: none;
+      }
+    }
+  }
+  .button-group {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #f9faff;
+    border-radius: 0px 0px 10px 10px;
+
+    .button {
+      &--white {
+        margin-right: 16px;
+      }
+
+      &--purple {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 154px;
+      }
+    }
+  }
+}

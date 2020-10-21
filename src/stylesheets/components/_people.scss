@@ -1,0 +1,79 @@
+.people {
+  &__header {
+    margin-bottom: 65px;
+    h1 {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 31px;
+      color: #00234b;
+      display: inline-block;
+      margin-right: 7px;
+    }
+
+    span {
+      font-weight: 500;
+      line-height: 16px;
+      color: #778ca3;
+    }
+  }
+  &__labels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    h5 {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 20px;
+      text-transform: uppercase;
+      color: #778ca3;
+      margin-bottom: 10px;
+    }
+  }
+  article {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background: $articleBg;
+    box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .person {
+    &--salary {
+      b {
+        color: #525f7f;
+      }
+      color: #778ca3;
+    }
+    &--name {
+      h2 {
+        color: #00234b;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      p {
+        color: #778ca3;
+        font-weight: 400;
+        font-size: 14px;
+        margin-top: 8px;
+      }
+    }
+
+    &__data {
+      font-weight: normal;
+
+      line-height: 26px;
+      color: #525f7f;
+    }
+  }
+}
