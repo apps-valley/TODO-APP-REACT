@@ -4,11 +4,13 @@ import { HomePage, EditPersonPage, CreatePersonPage } from "pages";
 import { HomeRoute, EditRoute, CreateRoute } from "./routeNames";
 const Routes = () => (
   <BrowserRouter>
-    <Switch>
-      <Route path={HomeRoute} component={HomePage} exact={true}></Route>
-      <Route path={CreateRoute} component={CreatePersonPage}></Route>
-      <Route path={`${EditRoute}/:id`} component={EditPersonPage}></Route>
-    </Switch>
+    <main>
+      <Switch>
+        <Route path={HomeRoute} component={HomePage} exact={true}></Route>
+        <Route path={CreateRoute} component={CreatePersonPage}></Route>
+        <Route path={`${EditRoute}/:id`} component={EditPersonPage}></Route>
+      </Switch>
+    </main>
   </BrowserRouter>
 );
 
