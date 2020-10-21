@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
-import countries from "./countries";
+import Options from "./Options";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
   return {
@@ -24,11 +24,11 @@ const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
-  const preselectedOption = countries[0].label;
+
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
-    country: preselectedOption,
+    country: "",
     salary: "",
     birth: "",
   });
@@ -130,11 +130,7 @@ const Form = ({ id, history }) => {
             onChange={handleChange}
             placeholder="Portugal"
           >
-            {countries.map((country, key) => (
-              <option key={key} value={country.value}>
-                {country.label}
-              </option>
-            ))}
+            <Options />
           </select>
           <legend>Where are they based?</legend>
         </fieldset>

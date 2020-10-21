@@ -8,6 +8,28 @@ $articleBg: $white;
   box-sizing: border-box;
 }
 
+::-webkit-input-placeholder {
+  color: #525f7f;
+}
+:-moz-placeholder {
+  color: #525f7f;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: #525f7f;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #525f7f;
+}
+::-ms-input-placeholder {
+  color: #525f7f;
+}
+
+::placeholder {
+  color: #525f7f;
+}
+
 p,
 h1,
 h2,
@@ -272,6 +294,14 @@ form {
           outline: none;
           border-bottom: 1.5px solid #000000;
         }
+      }
+
+      select:invalid {
+        color: #525f7f !important;
+      }
+
+      select:focus {
+        color: #00234b;
       }
 
       input[type="date"]:invalid::-webkit-datetime-edit {
