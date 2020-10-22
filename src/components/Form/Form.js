@@ -3,7 +3,12 @@ import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
 import countries from "./countries";
+import { ADD_PERSON, EDIT_PERSON } from "context/reducer";
+import { HomeRoute } from "routes/routeNames";
 import { useForm, capitalize } from "./helpers";
+
+const ADD_BUTTON = "Add Employee";
+const EDIT_BUTTON = "Save";
 
 const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
@@ -29,7 +34,7 @@ const Form = ({ id, history }) => {
   }, [currentPerson]);
 
   const startSettingButtonValue = () =>
-    id ? setButtonValue("Save") : setButtonValue("Add Employee");
+    id ? setButtonValue(EDIT_BUTTON) : setButtonValue(ADD_BUTTON);
 
   const setAction = () => (id ? startEditPerson() : startAddPerson());
 
@@ -44,7 +49,7 @@ const Form = ({ id, history }) => {
       id,
     };
 
-    dispatch({ type: "EDIT_PERSON", person });
+    dispatch({ type: EDIT_PERSON, person });
   };
 
   const startAddPerson = () => {
@@ -59,13 +64,13 @@ const Form = ({ id, history }) => {
       birth,
     };
 
-    dispatch({ type: "ADD_PERSON", person });
+    dispatch({ type: ADD_PERSON, person });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     setAction();
-    history.push("/");
+    history.push(HomeRoute);
   };
 
   return (

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
-const ADD_PERSON = "ADD_PERSON";
-const EDIT_PERSON = "EDIT_PERSON";
+export const ADD_PERSON = "ADD_PERSON";
+export const EDIT_PERSON = "EDIT_PERSON";
 
 export const reducer = (state, action) => {
   switch (action.type) {
