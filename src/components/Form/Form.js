@@ -3,13 +3,24 @@ import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
 import moment from "moment";
+
+const capitalize = (string) => {
+  const arr = string.split(" ");
+  const capitalizedArr = arr.map(
+    (el) => el.charAt(0).toUpperCase() + el.slice(1)
+  );
+  return capitalizedArr.join(" ");
+};
+
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
-
   return {
     values,
     handleChange: (e) => {
-      values.birth = moment(values.birth).format("YYYY-MM-DD");
+      values.birth =
+        values.birth.trim() !== ""
+          ? moment(values.birth).format("YYYY-MM-DD")
+          : "";
       setValues({
         ...values,
         [e.target.name]: e.target.value,
@@ -64,7 +75,9 @@ const Form = ({ id, history }) => {
   };
 
   const startAddPerson = () => {
-    const { name, title, country, salary, birth } = values;
+    const { title, country, salary, birth } = values;
+    let { name } = values;
+    name = capitalize(name);
     const person = {
       name,
       title,
@@ -72,6 +85,7 @@ const Form = ({ id, history }) => {
       salary,
       birth,
     };
+
     dispatch({ type: "ADD_PERSON", person });
   };
 
@@ -92,8 +106,8 @@ const Form = ({ id, history }) => {
             placeholder="e.g. Jane Doe"
             onChange={handleChange}
             value={values.name}
-            required
             className="input"
+            required
           />
           <legend>First and last names</legend>
         </fieldset>
@@ -105,8 +119,8 @@ const Form = ({ id, history }) => {
             placeholder="e.g. 17/02/1990"
             onChange={handleChange}
             value={values.birth}
-            required
             className="input"
+            required
           />
           <legend>DD/MM/YYYY</legend>
         </fieldset>
@@ -118,16 +132,16 @@ const Form = ({ id, history }) => {
             placeholder="e.g Product manager"
             onChange={handleChange}
             value={values.title}
-            required
             className="input"
+            required
           />
           <legend>What is their role?</legend>
         </fieldset>
         <fieldset>
           <label htmlFor="number">Country</label>
           <select
-            required
             className="input"
+            required
             name="country"
             value={values.country}
             onChange={handleChange}
@@ -145,8 +159,8 @@ const Form = ({ id, history }) => {
             placeholder="e.g. 50000"
             onChange={handleChange}
             value={values.salary}
-            required
             className="input"
+            required
           />
           <legend>Gross yearly salary</legend>
         </fieldset>
