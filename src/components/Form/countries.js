@@ -1,10 +1,10 @@
 const options = [
-  { value: "Austria", label: "Austria", selected: true },
-  { value: "Croatia", label: "Croatia", selected: false },
-  { value: "Portugal", label: "Portugal", selected: false },
-  { value: "Germany", label: "Germany", selected: false },
-  { value: "India", label: "India", selected: false },
-  { value: "Peru", label: "Peru", selected: false },
+  { value: "Austria", label: "Austria" },
+  { value: "Croatia", label: "Croatia" },
+  { value: "Portugal", label: "Portugal" },
+  { value: "Germany", label: "Germany" },
+  { value: "India", label: "India" },
+  { value: "Peru", label: "Peru" },
 ];
 
 export default options;
