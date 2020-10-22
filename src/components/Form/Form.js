@@ -23,6 +23,9 @@ const Form = ({ id, history }) => {
     salary: "",
     birth: "",
   });
+  const classForSelect = `input ${
+    values.country === initialValueForSelect ? "is-grey" : "is-black"
+  }`;
 
   useEffect(() => {
     startSettingButtonValue();
@@ -118,9 +121,7 @@ const Form = ({ id, history }) => {
         <fieldset>
           <label htmlFor="country">Country</label>
           <select
-            className={`input ${
-              values.country === initialValueForSelect ? "is-grey" : "is-black"
-            }`}
+            className={classForSelect}
             required
             name="country"
             value={values.country || ""}
