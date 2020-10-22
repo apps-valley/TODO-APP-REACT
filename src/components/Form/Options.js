@@ -1,17 +1,45 @@
 import React from "react";
 import countries from "./countries";
 
-const Options = () =>
-  countries.map((country, key) =>
-    country.selected ? (
-      <option value="" disabled defaultValue key={key}>
-        {country.label}
-      </option>
-    ) : (
-      <option key={key} value={country.value} key={key}>
-        {country.label}
-      </option>
-    )
+const Options = ({ currentPerson }) => {
+  const defaultValue = countries[0].label;
+  const isEmpty =
+    Object.keys(currentPerson).length === 0 &&
+    currentPerson.constructor === Object;
+  const preselectedOption = (
+    <option
+      value={currentPerson.country || defaultValue}
+      defaultValue={currentPerson.country || defaultValue}
+    >
+      {currentPerson.country || defaultValue}
+    </option>
   );
+  const optionCountries = countries.map((country, key) => {
+    if (!isEmpty) {
+      if (currentPerson.country !== country.label) {
+        return (
+          <option key={key} value={country.label}>
+            {country.label}
+          </option>
+        );
+      }
+    } else if (defaultValue !== country.label) {
+      return (
+        <option key={key} value={country.label}>
+          {country.label}
+        </option>
+      );
+    }
+  });
+
+  const markup = (
+    <>
+      {preselectedOption}
+      {optionCountries}
+    </>
+  );
+
+  return markup;
+};
 
 export default Options;

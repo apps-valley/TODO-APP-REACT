@@ -2,27 +2,32 @@ import React, { useContext, useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
+import countries from "./countries";
 import { useForm, capitalize } from "./helpers";
 const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
+  const [currentPerson, setCurrentPerson] = useState({});
+
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
 
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
-    country: "",
+    country: countries[0].label,
     salary: "",
-    birth: "",
+    birth: currentPerson.birth ? currentPerson.birth : "",
   });
 
   useEffect(() => {
     startSettingButtonValue();
-    const currentPerson = getCurrentPerson();
-    if (currentPerson) {
+    const person = getCurrentPerson();
+    if (person) {
+      console.log("person :>> ", person);
+      setCurrentPerson(person);
       setInitialValues(currentPerson);
     }
-  }, []);
+  }, [currentPerson]);
 
   const startSettingButtonValue = () =>
     id ? setButtonValue("Save") : setButtonValue("Add Employee");
@@ -47,6 +52,7 @@ const Form = ({ id, history }) => {
     const { title, country, salary, birth } = values;
     let { name } = values;
     name = capitalize(name);
+    console.log("country :>> ", country);
     const person = {
       name,
       title,
@@ -74,7 +80,7 @@ const Form = ({ id, history }) => {
             name="name"
             placeholder="e.g. Jane Doe"
             onChange={handleChange}
-            value={values.name}
+            value={values.name || ""}
             className="input"
             required
           />
@@ -87,7 +93,7 @@ const Form = ({ id, history }) => {
             name="birth"
             placeholder="e.g. 17/02/1990"
             onChange={handleChange}
-            value={values.birth}
+            value={values.birth || ""}
             className="input"
             required
           />
@@ -100,7 +106,7 @@ const Form = ({ id, history }) => {
             name="title"
             placeholder="e.g Product manager"
             onChange={handleChange}
-            value={values.title}
+            value={values.title || ""}
             className="input"
             required
           />
@@ -112,11 +118,11 @@ const Form = ({ id, history }) => {
             className="input"
             required
             name="country"
-            value={values.country}
+            value={values.country || ""}
             onChange={handleChange}
             placeholder="Portugal"
           >
-            <Options />
+            <Options currentPerson={currentPerson} />
           </select>
           <legend>Where are they based?</legend>
         </fieldset>
@@ -127,7 +133,7 @@ const Form = ({ id, history }) => {
             name="salary"
             placeholder="e.g. 50000"
             onChange={handleChange}
-            value={values.salary}
+            value={values.salary || ""}
             className="input"
             required
           />

@@ -9,7 +9,7 @@ const defaultUser = {
   title: "Independent Trader",
   country: "United Kingdom",
   salary: "3000",
-  birth: "1/1/1960",
+  birth: "1960-01-01",
   id: uuidv4(),
 };
 
