@@ -11,7 +11,6 @@ export const capitalize = (string) => {
 
 export const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
-  console.log(values);
   return {
     values,
     handleChange: (e) => {
