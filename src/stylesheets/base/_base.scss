@@ -14,17 +14,21 @@ body {
 
 .container {
   display: grid;
-  padding: 0 30px;
+  padding: 0 10px;
   max-width: 1440px;
   margin: 0 auto;
   background: #e5e5e5;
 
   @include md {
+    padding: 0 50px;
+  }
+
+  @include lg {
     padding: 0 100px;
   }
 
   &__inner {
-    @include md {
+    @include sm {
       padding-right: 20px;
     }
   }

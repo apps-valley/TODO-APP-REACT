@@ -95,14 +95,28 @@ form {
     border-radius: 0px 0px 10px 10px;
 
     .button {
+      display: block;
+      margin: 0 auto;
+
       &--white {
-        margin-right: 16px;
+        margin-bottom: 10px;
+      }
+      @include sm {
+        display: inline-block;
+        &--white {
+          margin-bottom: 0;
+          margin-right: 16px;
+        }
       }
 
       &--purple {
         padding-top: 10px;
         padding-bottom: 10px;
-        width: 154px;
+        width: 143px;
+
+        @include sm {
+          width: 154px;
+        }
       }
     }
   }

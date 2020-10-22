@@ -18,10 +18,16 @@
   }
   &__labels {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include sm {
+      grid-template-columns: repeat(5, 1fr);
+      padding-left: 25px;
+      padding-right: 25px;
+    }
 
     h5 {
       font-weight: 600;
@@ -33,18 +39,26 @@
     }
   }
   article {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 10px;
     align-items: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
     background: $articleBg;
     box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     margin-bottom: 10px;
+    @include sm {
+      grid-template-columns: repeat(5, 1fr);
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
 
   .person {
@@ -58,7 +72,12 @@
       h2 {
         color: #00234b;
         font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
+
+        @include sm {
+          font-size: 18px;
+        }
       }
 
       p {
@@ -71,9 +90,23 @@
 
     &__data {
       font-weight: normal;
-
-      line-height: 26px;
       color: #525f7f;
+    }
+  }
+
+  .button {
+    &--white {
+      width: 100px;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      margin-top: 20px;
+      @include sm {
+        width: 142px;
+        position: relative;
+        margin-top: 0;
+        bottom: 0;
+      }
     }
   }
 }

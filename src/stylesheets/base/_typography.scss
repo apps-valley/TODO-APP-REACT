@@ -10,7 +10,13 @@ h5 {
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+
+  @include md {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 span {
