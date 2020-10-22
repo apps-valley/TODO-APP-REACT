@@ -2,38 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
-import moment from "moment";
-
-const capitalize = (string) => {
-  const arr = string.split(" ");
-  const capitalizedArr = arr.map(
-    (el) => el.charAt(0).toUpperCase() + el.slice(1)
-  );
-  return capitalizedArr.join(" ");
-};
-
-const useForm = (initialValues) => {
-  const [values, setValues] = useState(initialValues);
-  return {
-    values,
-    handleChange: (e) => {
-      values.birth =
-        values.birth.trim() !== ""
-          ? moment(values.birth).format("YYYY-MM-DD")
-          : "";
-      setValues({
-        ...values,
-        [e.target.name]: e.target.value,
-      });
-    },
-    setInitialValues: (initialValues) => {
-      setValues({
-        ...initialValues,
-      });
-    },
-  };
-};
-
+import { useForm, capitalize } from "./helpers";
 const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
   const getCurrentPerson = () => people.find((person) => person.id === id);
