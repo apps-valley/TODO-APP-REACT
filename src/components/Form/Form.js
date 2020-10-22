@@ -4,10 +4,10 @@ import { PeopleContext } from "context";
 import Options from "./Options";
 import countries from "./countries";
 import { useForm, capitalize } from "./helpers";
+
 const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
   const [currentPerson, setCurrentPerson] = useState({});
-
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
 
@@ -23,7 +23,6 @@ const Form = ({ id, history }) => {
     startSettingButtonValue();
     const person = getCurrentPerson();
     if (person) {
-      console.log("person :>> ", person);
       setCurrentPerson(person);
       setInitialValues(currentPerson);
     }
@@ -52,7 +51,6 @@ const Form = ({ id, history }) => {
     const { title, country, salary, birth } = values;
     let { name } = values;
     name = capitalize(name);
-    console.log("country :>> ", country);
     const person = {
       name,
       title,
@@ -87,7 +85,7 @@ const Form = ({ id, history }) => {
           <legend>First and last names</legend>
         </fieldset>
         <fieldset>
-          <label htmlFor="date">Birthdate</label>
+          <label htmlFor="birth">Birthdate</label>
           <input
             type="date"
             name="birth"
@@ -113,7 +111,7 @@ const Form = ({ id, history }) => {
           <legend>What is their role?</legend>
         </fieldset>
         <fieldset>
-          <label htmlFor="number">Country</label>
+          <label htmlFor="country">Country</label>
           <select
             className="input"
             required
@@ -127,7 +125,7 @@ const Form = ({ id, history }) => {
           <legend>Where are they based?</legend>
         </fieldset>
         <fieldset>
-          <label htmlFor="country">Salary</label>
+          <label htmlFor="salary">Salary</label>
           <input
             type="number"
             name="salary"
