@@ -2,11 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
+import moment from "moment";
 const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
+
   return {
     values,
     handleChange: (e) => {
+      values.birth = moment(values.birth).format("YYYY-MM-DD");
       setValues({
         ...values,
         [e.target.name]: e.target.value,

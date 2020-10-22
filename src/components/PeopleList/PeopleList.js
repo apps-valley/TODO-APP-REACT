@@ -3,9 +3,13 @@ import { PeopleContext } from "context";
 import { Link } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import userIcon from "resources/user-profile.svg";
+import moment from "moment";
+
 const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
   const peopleEnding = people.length > 1 ? "es" : "er";
+  const formateDate = (date) => moment(date).format("DD/MM/YYYY");
+
   return (
     <section className="people">
       <div className="people__header container__inner">
@@ -33,7 +37,7 @@ const PeopleList = () => {
         <article className="person" key={key}>
           <div className="person__data person--name">
             <h2>{name}</h2>
-            <p>{birth}</p>
+            <p>{formateDate(birth)}</p>
           </div>
           <h3 className="person__data">{title}</h3>
           <h3 className="person__data person--salary">
