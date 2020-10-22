@@ -21,7 +21,7 @@ const Form = ({ id, history }) => {
     title: "",
     country: selectInitialValue,
     salary: "",
-    birth: currentPerson.birth ? currentPerson.birth : "",
+    birth: "",
   });
 
   useEffect(() => {
