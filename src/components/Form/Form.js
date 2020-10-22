@@ -15,11 +15,11 @@ const Form = ({ id, history }) => {
   const [currentPerson, setCurrentPerson] = useState({});
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
-  const selectInitialValue = countries[0].label;
+  const initialValueForSelect = countries[0].label;
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
-    country: selectInitialValue,
+    country: initialValueForSelect,
     salary: "",
     birth: "",
   });
@@ -119,7 +119,7 @@ const Form = ({ id, history }) => {
           <label htmlFor="country">Country</label>
           <select
             className={`input ${
-              values.country === selectInitialValue ? "is-grey" : "is-black"
+              values.country === initialValueForSelect ? "is-grey" : "is-black"
             }`}
             required
             name="country"
