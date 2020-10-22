@@ -6,7 +6,7 @@
         font-weight: 500;
         font-size: 26px;
         line-height: 31px;
-        color: #00234b;
+        color: $black;
         display: inline-block;
         margin-right: 7px;
       }
@@ -14,7 +14,7 @@
       span {
         font-weight: 500;
         line-height: 16px;
-        color: #778ca3;
+        color: $grey-2;
       }
     }
     &__labels {
@@ -29,7 +29,7 @@
         font-size: 12px;
         line-height: 20px;
         text-transform: uppercase;
-        color: #778ca3;
+        color: $grey-2;
         margin-bottom: 10px;
       }
     }
@@ -50,19 +50,19 @@
     .person {
       &--salary {
         b {
-          color: #525f7f;
+          color: $grey-1;
         }
-        color: #778ca3;
+        color: $grey-2;
       }
       &--name {
         h2 {
-          color: #00234b;
+          color: $black;
           font-size: 18px;
           font-weight: 600;
         }
 
         p {
-          color: #778ca3;
+          color: $grey-2;
           font-weight: 400;
           font-size: 14px;
           margin-top: 8px;
@@ -71,9 +71,8 @@
 
       &__data {
         font-weight: normal;
-
         line-height: 26px;
-        color: #525f7f;
+        color: $grey-1;
       }
     }
   }

@@ -1,23 +1,23 @@
 ::-webkit-input-placeholder {
-  color: #525f7f;
+  color: $grey-1;
 }
 :-moz-placeholder {
-  color: #525f7f;
+  color: $grey-1;
   opacity: 1;
 }
 ::-moz-placeholder {
-  color: #525f7f;
+  color: $grey-1;
   opacity: 1;
 }
 :-ms-input-placeholder {
-  color: #525f7f;
+  color: $grey-1;
 }
 ::-ms-input-placeholder {
-  color: #525f7f;
+  color: $grey-1;
 }
 
 ::placeholder {
-  color: #525f7f;
+  color: $grey-1;
 }
 
 input {
@@ -56,7 +56,7 @@ form {
         border-bottom: 1.5px solid #624de3;
         font-size: 20px;
         line-height: 24px;
-        color: #00234b;
+        color: $black;
         padding: 8px 0;
         transition: border-bottom-color 0.5s ease-in-out;
 
@@ -66,16 +66,16 @@ form {
         }
 
         &.is-grey {
-          color: #525f7f;
+          color: $grey-1;
         }
 
         &.is-black {
-          color: #00234b;
+          color: $black;
         }
       }
 
       input[type="date"]:invalid::-webkit-datetime-edit {
-        color: #525f7f;
+        color: $grey-1;
       }
 
       input[type="date" i] {
