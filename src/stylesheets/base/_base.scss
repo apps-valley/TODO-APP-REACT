@@ -17,7 +17,7 @@ body {
   padding: 0 10px;
   max-width: 1440px;
   margin: 0 auto;
-  background: #e5e5e5;
+  background: $bodyBg;
 
   @include md {
     padding: 0 50px;

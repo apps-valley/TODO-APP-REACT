@@ -41,7 +41,7 @@ form {
         font-weight: normal;
         font-size: 13px;
         line-height: 16px;
-        color: #624de3;
+        color: $purple;
       }
 
       legend {
@@ -49,20 +49,20 @@ form {
         bottom: -15px;
         font-size: 13px;
         line-height: 16px;
-        color: rgba(0, 35, 75, 0.5);
+        color: $grey-5;
       }
       .input {
         width: 100%;
-        border-bottom: 1.5px solid #624de3;
+        border-bottom: 1.5px solid $purple;
         font-size: 20px;
         line-height: 24px;
-        color: $black;
+        color: $black-1;
         padding: 8px 0;
         transition: border-bottom-color 0.5s ease-in-out;
 
         &:focus {
           outline: none;
-          border-bottom: 1.5px solid #000000;
+          border-bottom: 1.5px solid $black;
         }
 
         &.is-grey {
@@ -70,7 +70,7 @@ form {
         }
 
         &.is-black {
-          color: $black;
+          color: $black-1;
         }
       }
 
@@ -91,7 +91,7 @@ form {
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
-    background: #f9faff;
+    background-color: $buttonsBg;
     border-radius: 0px 0px 10px 10px;
 
     .button {

@@ -3,14 +3,14 @@ nav {
   padding: 20px 0;
   margin-bottom: 46px;
   .container {
-    background-color: #fff;
+    background-color: $white;
   }
 
   .user {
     display: flex;
     justify-self: end;
     &__image {
-      background: #ffe8df;
+      background-color: $imageColor;
       border-radius: 100%;
       height: 36px;
       width: 36px;
@@ -20,7 +20,7 @@ nav {
       margin-left: 13px;
       margin-bottom: 5px;
       h3 {
-        color: $black;
+        color: $black-1;
       }
 
       span {
