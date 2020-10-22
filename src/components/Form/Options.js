@@ -7,12 +7,7 @@ const Options = ({ currentPerson }) => {
     Object.keys(currentPerson).length === 0 &&
     currentPerson.constructor === Object;
   const preselectedOption = (
-    <option
-      value={currentPerson.country || defaultValue}
-      defaultValue={currentPerson.country || defaultValue}
-    >
-      {currentPerson.country || defaultValue}
-    </option>
+    <option>{currentPerson.country || defaultValue}</option>
   );
   const optionCountries = countries.map((country, key) => {
     if (!isEmpty) {

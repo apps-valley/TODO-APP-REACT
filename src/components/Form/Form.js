@@ -15,11 +15,11 @@ const Form = ({ id, history }) => {
   const [currentPerson, setCurrentPerson] = useState({});
   const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
-
+  const selectInitialValue = countries[0].label;
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
-    country: countries[0].label,
+    country: selectInitialValue,
     salary: "",
     birth: currentPerson.birth ? currentPerson.birth : "",
   });
