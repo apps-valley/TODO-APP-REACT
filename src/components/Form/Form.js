@@ -145,7 +145,7 @@ const Form = ({ id, history }) => {
         </fieldset>
       </div>
       <div className="button-group">
-        <Link to="/" className="button button--white">
+        <Link to={HomeRoute} className="button button--white">
           Cancel
         </Link>
         <input
