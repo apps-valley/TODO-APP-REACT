@@ -64,14 +64,14 @@ form {
           outline: none;
           border-bottom: 1.5px solid #000000;
         }
-      }
 
-      select:invalid {
-        color: #525f7f !important;
-      }
+        &.is-grey {
+          color: #525f7f;
+        }
 
-      select:focus {
-        color: #00234b;
+        &.is-black {
+          color: #00234b;
+        }
       }
 
       input[type="date"]:invalid::-webkit-datetime-edit {

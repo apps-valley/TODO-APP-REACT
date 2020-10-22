@@ -118,12 +118,13 @@ const Form = ({ id, history }) => {
         <fieldset>
           <label htmlFor="country">Country</label>
           <select
-            className="input"
+            className={`input ${
+              values.country === selectInitialValue ? "is-grey" : "is-black"
+            }`}
             required
             name="country"
             value={values.country || ""}
             onChange={handleChange}
-            placeholder="Portugal"
           >
             <Options currentPerson={currentPerson} />
           </select>
