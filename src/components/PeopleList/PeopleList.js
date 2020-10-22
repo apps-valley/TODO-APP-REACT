@@ -7,7 +7,7 @@ import moment from "moment";
 
 const PeopleList = () => {
   const { people } = React.useContext(PeopleContext);
-  const peopleEnding = people.length > 1 ? "es" : "er";
+  const peopleEnding = people.length > 1 ? "es" : "r";
   const formateDate = (date) => moment(date).format("DD/MM/YYYY");
 
   return (
