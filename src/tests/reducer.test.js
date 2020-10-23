@@ -19,4 +19,18 @@ describe("people reducer", () => {
     const state = reducer(people, action);
     expect(state).toEqual([...people, person]);
   });
+
+  it("should edit a person", () => {
+    const title = "Superhero";
+    const action = {
+      type: "EDIT_PERSON",
+
+      person: {
+        title,
+        id: people[0].id,
+      },
+    };
+    const state = reducer(people, action);
+    expect(state[0].title).toBe(title);
+  });
 });
