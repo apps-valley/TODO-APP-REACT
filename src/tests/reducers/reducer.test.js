@@ -1,6 +1,6 @@
 import { reducer, ADD_PERSON, EDIT_PERSON, defaultUser } from "context/reducer";
 import expect from "expect";
-import people from "./fixtures/people";
+import people from "../fixtures/people";
 
 describe("people reducer", () => {
   it("should add new person", () => {
