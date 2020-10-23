@@ -16,6 +16,7 @@ describe("people reducer", () => {
       type: ADD_PERSON,
       person,
     };
+
     const state = reducer(people, action);
     expect(state).toEqual([...people, person]);
   });

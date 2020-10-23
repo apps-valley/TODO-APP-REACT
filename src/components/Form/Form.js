@@ -6,6 +6,7 @@ import countries from "./countries";
 import { ADD_PERSON, EDIT_PERSON } from "context/reducer";
 import { HomeRoute } from "routes/routeNames";
 import { useForm, capitalize } from "./helpers";
+import { v4 as uuidv4 } from "uuid";
 
 const ADD_BUTTON = "Add Employee";
 const EDIT_BUTTON = "Save";
@@ -65,6 +66,7 @@ const Form = ({ id, history }) => {
       country,
       salary,
       birth,
+      id: uuidv4(),
     };
 
     dispatch({ type: ADD_PERSON, person });
