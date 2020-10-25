@@ -1,12 +1,21 @@
 import React from "react";
-import Navbar from "components/Navbar";
-import { shallow } from "enzyme";
-import toJSON from "enzyme-to-json";
+import { Navbar } from "components";
+import { render, screen } from "@testing-library/react";
 
-describe("Navbar", () => {
-  it("should render Navbar correctly", () => {
-    const wrapper = shallow(<Navbar />);
-    expect(toJSON(wrapper)).toMatchSnapshot();
-    expect(wrapper.find(".user__image").length).toBe(1);
+describe("<Navbar />", () => {
+  beforeEach(() => {
+    render(<Navbar />);
+  });
+
+  describe("when Navbar is initialized", () => {
+    it("then shows the admin user", () => {
+      expect(screen.getByText(/Admin/i)).toBeTruthy();
+    });
+
+    it("then has navbar", () => {
+      const { container } = render(<Navbar />);
+      const hasNavbarClass = container.firstChild.classList.contains("nav");
+      expect(hasNavbarClass).toBe(true);
+    });
   });
 });

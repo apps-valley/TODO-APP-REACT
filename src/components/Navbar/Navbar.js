@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navbar = () => (
-  <nav>
+  <nav className="nav">
     <div className="container">
       <div className="user container__inner">
         <div className="user__image"></div>
