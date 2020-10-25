@@ -39,7 +39,7 @@ const setup = () => {
   };
 };
 
-describe("Form component", () => {
+describe("Creating of Employer", () => {
   it("then has the correct input elements and initial values", () => {
     const {
       inputCountry,
