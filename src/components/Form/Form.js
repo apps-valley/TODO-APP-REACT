@@ -14,8 +14,8 @@ const EDIT_BUTTON = "Save";
 const Form = ({ id, history }) => {
   const [buttonValue, setButtonValue] = useState("");
   const [currentPerson, setCurrentPerson] = useState({});
-  const getCurrentPerson = () => people.find((person) => person.id === id);
   const { people, dispatch } = useContext(PeopleContext);
+  const getCurrentPerson = () => people.find((person) => person.id === id);
   const initialValueForSelect = countries[0].label;
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
@@ -91,6 +91,7 @@ const Form = ({ id, history }) => {
             value={values.name || ""}
             className="input"
             required
+            data-testid="name"
           />
           <legend>First and last names</legend>
         </fieldset>
@@ -104,6 +105,7 @@ const Form = ({ id, history }) => {
             value={values.birth || ""}
             className="input"
             required
+            data-testid="birth"
           />
           <legend>DD/MM/YYYY</legend>
         </fieldset>
@@ -117,6 +119,7 @@ const Form = ({ id, history }) => {
             value={values.title || ""}
             className="input"
             required
+            data-testid="title"
           />
           <legend>What is their role?</legend>
         </fieldset>
@@ -128,6 +131,7 @@ const Form = ({ id, history }) => {
             name="country"
             value={values.country || ""}
             onChange={handleChange}
+            data-testid="country"
           >
             <Options currentPerson={currentPerson} />
           </select>
@@ -143,6 +147,7 @@ const Form = ({ id, history }) => {
             value={values.salary || ""}
             className="input"
             required
+            data-testid="salary"
           />
           <legend>Gross yearly salary</legend>
         </fieldset>
@@ -161,4 +166,4 @@ const Form = ({ id, history }) => {
   );
 };
 
-export default withRouter(Form);
+export default Form;
