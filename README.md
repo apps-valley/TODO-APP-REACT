@@ -10,9 +10,12 @@ This is a project that is demonstrating my React skills.
 
 ## Run app in the development mode
 
-1.  `git status` => you should be on the master branch
-2.  `yarn && yarn start` => If you are starting the project for the first time. Every other time, app can be started with `yarn start`
-3.  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. `git clone https://github.com/tonkec/shiny_people.git` => clone the repo
+2. `cd shiny_people` => change directory to `shiny_people`
+3. `git status` => you should be on the master branch
+4. `yarn install` => install all the dependencies
+5. `yarn start` => run the app
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Description
 
