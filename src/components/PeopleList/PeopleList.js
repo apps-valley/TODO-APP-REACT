@@ -41,7 +41,7 @@ const PeopleList = () => {
           </div>
           <h3 className="person__data">{title}</h3>
           <h3 className="person__data person--salary">
-            <b>{salary}</b> year
+            <b>{salary}</b> per year
           </h3>
           <h3 className="person__data">{country} </h3>
           <Link className="button button--white" to={`/edit/${id}`}>
