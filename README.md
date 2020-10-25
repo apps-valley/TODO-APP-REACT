@@ -51,13 +51,11 @@ Features covered by tests:
   - onChange event for every input
   - creating an employer
 
-To run all the tests, simply run this command:
+###### To run all the tests, follow these steps
 
-```
-yarn test
-```
-
-To run all the tests, press `a`.
+1.  `git status` => you should be on the master branch
+2.  `yarn test` => dialog with options should show up
+3.  `a` => select `a` from dialog
 
 ## Deployment
 
