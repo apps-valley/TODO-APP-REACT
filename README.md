@@ -65,8 +65,7 @@ To run all the tests, press `a`.
 
 ## Known issues
 
-- Even though all test pass, exception is thrown when running tests
-  ![test_error](https://i.ibb.co/bWPwncb/Screenshot-2020-10-25-at-17-38-06.png)
+Even though all test pass, [exception is thrown](https://i.ibb.co/bWPwncb/Screenshot-2020-10-25-at-17-38-06.png) when running tests. This issue seems to be thrown when calling api request, but this app does not make such calls.
 
 ## TODO
 
