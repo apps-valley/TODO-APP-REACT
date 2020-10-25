@@ -16,7 +16,7 @@ This is a project that is demonstrating my React skills.
 
 ## Description
 
-This app allows you to create and edit records, in this case employers. Employers are saved in the browser with localStorage. I decided to avoid complex state management system such as redux and replace it with Context API because project is small and simple. Component's state was managed by `useState` hook. There are four routes in the project: HomeRoute, CreateRoute, EditRoute and PageNotFound.
+This app allows you to create and edit records, in this case employers. Employers are saved in the browser with localStorage. I decided to avoid complex state management system such as redux and replace it with Context API because project is small and simple. Component's state was managed by `useState` hook. There are four routes in the project: `HomeRoute`, `CreateRoute`, `EditRoute` and `PageNotFound`.
 
 ## Features
 
@@ -57,9 +57,23 @@ To run all the tests, simply run this command:
 yarn test
 ```
 
+To run all the tests, press `a`.
+
 ## Deployment
 
 [Project is deployed with Netlify](https://xenodochial-lamport-952060.netlify.app/). Master branch has production ready code. Deploys from master are published automatically.
+
+## Known issues
+
+- Even though all test pass, exception is thrown when running tests
+  ![test_error](https://i.ibb.co/bWPwncb/Screenshot-2020-10-25-at-17-38-06.png)
+
+## TODO
+
+- fix error in tests
+- form validation
+- form errors
+- test editing of employer
 
 ## Acknowledgements
 
