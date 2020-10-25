@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { PeopleContext } from "context";
 import Options from "./Options";
 import countries from "./countries";
@@ -11,7 +11,8 @@ import { v4 as uuidv4 } from "uuid";
 const ADD_BUTTON = "Add Employee";
 const EDIT_BUTTON = "Save";
 
-const Form = ({ id, history }) => {
+const Form = ({ id }) => {
+  const history = useHistory();
   const [buttonValue, setButtonValue] = useState("");
   const [currentPerson, setCurrentPerson] = useState({});
   const { people, dispatch } = useContext(PeopleContext);
