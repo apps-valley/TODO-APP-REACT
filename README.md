@@ -58,7 +58,7 @@ yarn test
 
 ## Deployment
 
-[Project is deployed with Netlify](https://xenodochial-lamport-952060.netlify.app/). Master branch has production ready code.
+[Project is deployed with Netlify](https://xenodochial-lamport-952060.netlify.app/). Master branch has production ready code. Deploys from master are published automatically.
 
 ## Acknowledgements
 
