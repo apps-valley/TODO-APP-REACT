@@ -32,7 +32,6 @@ const setup = () => {
 describe("<Form />", () => {
   it("should have the correct input elements and initial values", () => {
     const { getByTestId } = setup();
-
     expect(getByTestId("name").value).toBe("");
     expect(getByTestId("title").value).toBe("");
     expect(getByTestId("birth").value).toBe("");
@@ -62,5 +61,14 @@ describe("<Form />", () => {
     const { inputSalary } = setup();
     fireEvent.change(inputSalary, { target: { value: 2000 } });
     expect(inputSalary.value).toBe("2000");
+  });
+
+  it("should change the country value", () => {
+    const { getAllByTestId, inputCountry } = setup();
+    fireEvent.change(inputCountry, { target: { value: "Portugal" } });
+    const options = getAllByTestId("select-option");
+    expect(options[0].selected).toBeFalsy();
+    expect(options[1].selected).toBeTruthy();
+    expect(options[2].selected).toBeFalsy();
   });
 });
