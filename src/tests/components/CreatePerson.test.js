@@ -41,13 +41,19 @@ const setup = () => {
 
 describe("Form component", () => {
   it("then has the correct input elements and initial values", () => {
-    const { getByTestId } = setup();
+    const {
+      inputCountry,
+      inputBirth,
+      inputSalary,
+      inputTitle,
+      inputName,
+    } = setup();
 
-    expect(getByTestId("title").value).toBe("");
-    expect(getByTestId("title").value).toBe("");
-    expect(getByTestId("birth").value).toBe("");
-    expect(getByTestId("salary").value).toBe("");
-    expect(getByTestId("country").value).toBe("Austria");
+    expect(inputName.value).toBe("");
+    expect(inputTitle.value).toBe("");
+    expect(inputBirth.value).toBe("");
+    expect(inputSalary.value).toBe("");
+    expect(inputCountry.value).toBe("Austria");
   });
 
   it("then changes the name value", () => {
