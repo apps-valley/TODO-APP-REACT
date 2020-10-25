@@ -1,19 +1,17 @@
-import { v4 as uuidv4 } from "uuid";
-
 export const ADD_PERSON = "ADD_PERSON";
 export const EDIT_PERSON = "EDIT_PERSON";
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case ADD_PERSON:
-      const { name, title, salary, country, birth } = action.person;
+      const { name, title, salary, country, birth, id } = action.person;
       const person = {
         name,
         title,
         salary,
         country,
         birth,
-        id: uuidv4(),
+        id,
       };
       return [...state, person];
     case EDIT_PERSON:

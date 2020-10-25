@@ -11,14 +11,14 @@ const Options = ({ currentPerson }) => {
     if (currentPerson.country !== undefined) {
       if (currentPerson.country !== country.label) {
         return (
-          <option key={key} value={country.label}>
+          <option key={key} value={country.label} data-testid="select-option">
             {country.label}
           </option>
         );
       }
     } else if (defaultValue !== country.label) {
       return (
-        <option key={key} value={country.label}>
+        <option key={key} value={country.label} data-testid="select-option">
           {country.label}
         </option>
       );
