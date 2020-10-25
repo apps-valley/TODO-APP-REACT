@@ -11,7 +11,7 @@
   display: inline-block;
   cursor: pointer;
   position: relative;
-
+  transition: transform 0.1s ease-in-out;
   &--white {
     border: 2px solid rgba(98, 77, 227, 0.3);
     color: $purple;
@@ -30,5 +30,9 @@
     align-items: center;
     justify-content: center;
     width: 180px;
+  }
+
+  &:hover {
+    transform: translateY(2px);
   }
 }
