@@ -49,6 +49,7 @@ Features covered by tests:
   - initial rendering of PeopleList component
 - Form
   - onChange event for every input
+  - creating an employer
 
 To run all the tests, simply run this command:
 
