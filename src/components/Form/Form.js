@@ -14,10 +14,9 @@ const EDIT_BUTTON = "Save";
 const Form = ({ id }) => {
   const history = useHistory();
   const [buttonValue, setButtonValue] = useState("");
-  const [currentPerson, setCurrentPerson] = useState({});
+  const initialValueForSelect = countries[0].label;
   const { people, dispatch } = useContext(PeopleContext);
   const getCurrentPerson = () => people.find((person) => person.id === id);
-  const initialValueForSelect = countries[0].label;
   const { values, handleChange, setInitialValues } = useForm({
     name: "",
     title: "",
@@ -33,16 +32,14 @@ const Form = ({ id }) => {
     startSettingButtonValue();
     const person = getCurrentPerson();
     if (person) {
-      setCurrentPerson(person);
-      setInitialValues(currentPerson);
+      setInitialValues(person);
     }
-  }, [currentPerson]);
+  }, []);
 
   const startSettingButtonValue = () =>
     id ? setButtonValue(EDIT_BUTTON) : setButtonValue(ADD_BUTTON);
 
   const setAction = () => (id ? startEditPerson() : startAddPerson());
-
   const startEditPerson = () => {
     const { name, title, country, salary, birth } = values;
     const person = {
@@ -134,7 +131,7 @@ const Form = ({ id }) => {
             onChange={handleChange}
             data-testid="country"
           >
-            <Options currentPerson={currentPerson} />
+            <Options currentPerson={values} />
           </select>
           <legend>Where are they based?</legend>
         </fieldset>
