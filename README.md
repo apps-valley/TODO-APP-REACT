@@ -6,7 +6,7 @@
 
 ## Short bio
 
-This is a project that is demonstrating my React skills.
+This is a project which I use to learn and try new things with React.
 
 ## Run app in the development mode
 
